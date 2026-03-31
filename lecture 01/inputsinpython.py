@@ -1,0 +1,11 @@
+input("Tell me your age : ")
+name = (input("enter your name :" ))
+print("welcome : ", name)
+print("hey body")
+val = input("enter some value: :")  
+print(type(val), val)          #result for input() is always a string.
+input("Tell me your age :")
+birth=int(input("bith date :"))
+print(type(birth), birth)
+birth=float(input("bith date :"))
+print(type(birth), birth)
