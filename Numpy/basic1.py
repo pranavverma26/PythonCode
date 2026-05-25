@@ -47,7 +47,7 @@ print(d)
 print()
 # np.arange
 e=np.arange(1,11,2)
-print(e)
+print("arange ",e)
 print()
 # with reshape
 print(np.arange(16).reshape(8,2)) # makes an 2-d array of row =8 and column=2
@@ -138,13 +138,15 @@ print(a4+a5)
 print()
 # Array Functions
 a6 = np.random.random((3,3))
+print(a6)
+print("Round\n")
 a6 = np.round(a6*100)
 print(a6)
 
 # max/min/sum/prod
 print(np.max(a6))
 print(np.min(a6))
-print(np.sum(a6))
+print(np.sum(a6,axis=1))
 print(np.prod(a6))
 
 # for row wise max/min/sum/prod axis=1 and axis=0 for column
@@ -181,8 +183,12 @@ print()
 a7 = np.arange(12).reshape(3,4)
 a8 = np.arange(12,24).reshape(4,3)
 # it is applicable when column of a7 is equal to row of a8 and result is 3x3
-
+print("Dot Prod = \n")
 print(np.dot(a7,a8))
+print("a7 and a8 =\n")
+print(a7)
+print()
+print(a8)
 print()
 
 # log and exponents
@@ -242,6 +248,7 @@ print()
 
 # 3-D Array
 a3=np.arange(27).reshape(3,3,3)
+print("3D array =\n")
 print(a3)
 
 print()

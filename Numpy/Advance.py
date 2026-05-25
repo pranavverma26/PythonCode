@@ -30,7 +30,7 @@ print("Size of d in narray =",sys.getsizeof(d))
 
 # Advanced Indexing
 
-a = np.arange(24).reshape(6,4)
+a = np.arange(24).reshape(6,4)              
 print(a)
 print()
 
@@ -114,7 +114,7 @@ print(a)
 print()
 print(b)
 
-print()
+print("Not error \n")
 print(a+b)
 
 # 2 :- here broadcasting is not applicable so this will give error
@@ -128,8 +128,12 @@ print(a+b)
 
 # 3
 print()
+print("3\n")
 a = np.arange(3).reshape(1,3)
+print(a)
 b = np.arange(3).reshape(3,1)
+print(b)
+print(a+b)
 
 
 
@@ -239,7 +243,7 @@ plt.ylabel("Y-axis")
 plt.title("Simple Line Graph")
 
 # show graph
-plt.show()
+# plt.show()
 
 # y = x^2
 x = np.linspace(-10,10,100)
@@ -248,8 +252,8 @@ y = x**2
 plt.plot(x,y)
 plt.xlabel("X-axis")
 plt.ylabel("Y-axis")
-plt.title("Y=X**2")
-plt.show()
+# plt.title("Y=X**2")
+# plt.show()
 
 # y = sin(x)
 j = np.linspace(-10,10,100)
