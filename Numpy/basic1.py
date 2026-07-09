@@ -148,18 +148,8 @@ print(np.max(a6))
 print(np.min(a6))
 print(np.sum(a6,axis=1))
 print(np.prod(a6))
-
-# for row wise max/min/sum/prod axis=1 and axis=0 for column
-# axis=1 means:
-# 👉 operation is performed across columns (row-wise)
-
-# So:
-
-# You are moving horizontally
-
-# Result is usually one value per row
-
 # in axis=0 you are moving vertically
+# asis=1 you are moving horizontally
 
 print("Max min 0,1")
 print(a6)
@@ -206,7 +196,7 @@ print()
 print(np.ceil(np.random.random((2,3))*100)) # ceil - it goes to upcoming integer
 
 
-print()
+print("Indexing and slicing")
 # Indexing and Slicing
 print(a1) # 1-D array it behave like slicing in list
 print(a1[0])
