@@ -14,7 +14,7 @@ marks = pd.DataFrame([
     [120,100,14],
     [80,70,14],
     [80,70,14]
-])
+], columns=["iq","marks","package"])
 print(marks.value_counts())
 
 
@@ -59,13 +59,13 @@ batsman['batting_rank']=batsman['batsman_run'].rank(ascending=False)
 print(batsman.sort_values('batting_rank'))
 
 print("\n sort_index(series and dataframe)")
-marks = {
+marks1 = {
     'maths':67,  
     'english':57,  
     'science':89,   
     'hindi':100
 }
-marks_series = pd.Series(marks)
+marks_series = pd.Series(marks1)
 print(marks_series.sort_index(ascending=False))
 print(movies.sort_index(ascending=False))
 
@@ -99,7 +99,95 @@ print(ipl_match['Season'].unique())
 print("Number of unique values = ",len(ipl_match['Season'].unique())) # or we can use ipl_match['Season].nunique() :- nunique does not count nan values
 
 print("\n isnull(series + dataframe) -> It tells each value is missing value or not if missing value then return true")
+print(students['name'][students['name'].isnull()])   # applied on series
 
+print("\n hasnans(series)")
+print(students['name'].hasnans) # applied on series
+
+print("Applied on dataframe")
+print(students.isnull())
+
+print("\n dropna(series + dataframe) -> how parameter -> works like or")
+print(students['name'].dropna())
+
+print("\nApplying on dataframe")
+print(students.dropna(how='all'))
+
+students.dropna(subset=['name']) # removing na on the basis of name . To make permanenrt changes "inplace = True"
+students.dropna(subset=['name','college']) # removing na on the basis of name,college 
+
+print("\n fillna(series + dataframe)")
+print(students['name'].fillna('unknown')) # applied on series
+# we can also apply on whole dataframe but it is not good method because one number can't satisfy each na
+
+
+# Best way
+print(students['package'].fillna(students['package'].mean(),inplace=True))
+print(students)
+
+# forward fill ("ffill")- isha ya hoga ki "na" sa previous wala value joa hai "na" koa mill jeyga.
+print(students['name'].fillna(method='ffill'))
+
+# backward fill ("bfill")- isha ya hoga ki "na" k baad wala value joa hai na koa mill jeyga.
+print(students['name'].fillna(method='bfill'))
+
+print("\n drop_duplicates(series + dataframe) -> works like and -> duplicated()")
+print(marks)
+print(marks.duplicated()) # tells which one are duplicate and return True
+print("Number of duplicate value are =",marks.duplicated().sum()) # tells how much duplicated value are.
+
+
+print(marks.drop_duplicates(keep='last')) # here by default keep = 'first'. Means remove first duplicate elements.
+
+print("\n Q). Find the last match played by virat kohli in Delhi")
+print(ipl_match)
+ipl_match['all_players'] = ipl_match['Team1Players'] + ipl_match['Team2Players']
+print(ipl_match.head(5))
+
+def did_kohli_play(player_list):
+    return 'V Kohli' in player_list
+ipl_match['did_kohli_play'] = ipl_match['all_players'].apply(did_kohli_play)
+ans = ipl_match[(ipl_match['City']=='Delhi') & (ipl_match['did_kohli_play']==True)].drop_duplicates(subset=['City'],keep='first')
+print(ans)
+
+
+print("\n # drop(series + dataframe) -> remove row or column")
+temp = pd.Series([10,2,3,16,45,78,10])
+print(temp)
+print(temp.drop(index=[0,6]))
+
+
+students.drop(columns=['branch','cgpa'],inplace=True) # drop column
+students.drop(index=[0,8],inplace=True)
+print(students)
+print("\n")
+students.set_index('name',inplace=True) # make name as index and then drop index
+students.drop(index=['ankit','rishabh'],inplace=True)
+print(students)
+
+print("\n apply(series + dataframe)")
+temp2 = pd.Series([10,20,30,40,50])
+print(temp2)
+def sigmoid(value):
+  return 1/1+np.exp(-value)
+
+print(temp.apply(sigmoid))
+
+print("\n")
+points_df = pd.DataFrame(
+    {
+        '1st point':[(3,4),(-6,5),(0,0),(-10,1),(4,5)],
+        '2nd point':[(-3,4),(0,0),(2,2),(10,10),(1,1)]
+    }
+)
+print(points_df)
+def euclidean(row):
+  pt_A = row['1st point']
+  pt_B = row['2nd point']
+
+  return ((pt_A[0] - pt_B[0])**2 + (pt_A[1] - pt_B[1])**2)**0.5
+points_df['distance'] = points_df.apply(euclidean,axis=1) # In dataframe we go row-wise.
+print(points_df)
 
 
 
