@@ -38,15 +38,16 @@ def load_overall_analysis():
         st.metric('Funded Startups',nums_startup)
 
     st.header("MoM graph")
-    temp_df = df.groupby(['year','month'])['amount'].sum().reset_index()
+    selected_option=st.selectbox('Select Type',['Total','Count'])
+    if selected_option=='Total':
+        temp_df = df.groupby(['year','month'])['amount'].sum().reset_index()
+    else:
+         temp_df = df.groupby(['year','month'])['amount'].count().reset_index()
+        
     temp_df['x_axis']=temp_df['month'].astype('str')+'-'+temp_df['year'].astype('str')
     fig5, ax5 = plt.subplots()
     ax5.plot(temp_df['x_axis'],temp_df['amount'])
     st.pyplot(fig5)
-
-
-
-
 
 
 def load_investor_details(investor):
@@ -103,9 +104,7 @@ st.sidebar.title('Startup Funding Analysis')
 option = st.sidebar.selectbox('Select One',['Overall Analysis','StartUp','Investor'])
 
 if option == 'Overall Analysis':
-    btn0 = st.sidebar.button('Show Overall Analysis')
-    if btn0:
-        load_overall_analysis()
+    load_overall_analysis()
 
 elif option == 'StartUp':
     st.sidebar.selectbox('Select StartUp',sorted(df['startup'].unique().tolist()))
