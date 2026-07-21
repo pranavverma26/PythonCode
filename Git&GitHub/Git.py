@@ -51,4 +51,66 @@ Works offline	                        Requires internet for remote operations
 3. Open Git Bash
 4. type "git clone" and then paste the link.
 """
+# git status 
+
+# step to commit 
+# Go in the repo directory 
+# git status :- to check what you have to do
+# git add . (ready to commit)
+# gitignore :- if you do not want to make chnages in that file.
 # git status
+# git commit -m "message"
+# git push :- to push on git hub
+
+"""
+Scenario 1: Local development only
+
+If you're working only on your own computer:
+
+git add .
+git commit -m "Updated Git.py"
+
+That's enough.
+
+Your commit is safely stored in your local Git repository.
+
+Scenario 2: You want the changes on GitHub
+
+Then you must do:
+
+git add .
+git commit -m "Updated Git.py"
+git push
+
+Without git push, GitHub will not receive your new commit.
+"""
+
+# seeing commits :- 
+# if you want to see how many commits you done then use :- git log
+# if you only want summary commit :- git log --oneline
+
+# git -stat
+# git -p :- show all changes made in whole file
+# git show (put first 6 sah value) :- show code of specific file
+
+# diff :- commit sa phla kuch changes hua hai to ya apko bta deta hai, commit kiya bina
+# git diff
+
+
+# Creating a versions of a software
+"""
+-tag --> X,Y,Z
+X -> The major version,used for making major and backward-incompatible changes.
+Y -> The minor version,used for adding functionality while maintaining backwards compatibility.
+Z -> The patch version, used for making small bug fixes while maintaining backwards compatibility.
+
+"""
+
+# adding tag
+# git tag -a v1.0.0 (tag name) then vin editor will open
+# to insert the tag press :- fn+insert
+# exit insert by pressing esc and then save by typing wq
+# to delete the tag := git tag -d (tag name)
+# to create tag in previous commit :- git tag -a v1.0.0 (sash)
+
+
