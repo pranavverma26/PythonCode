@@ -1,4 +1,4 @@
-class Atm:
+class Atm: 
     def __init__(self):
         self.pin=0
         self.balance=0

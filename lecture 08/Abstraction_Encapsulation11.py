@@ -1,6 +1,6 @@
 # Important Topics :-
 
-# There are four pillar of oop :- 1). Abstractio 2). Encapsulation 3). Inheritance 4). Polymorphism
+# There are four pillar of oop :- 1). Abstraction 2). Encapsulation 3). Inheritance 4). Polymorphism
 
 # Abstraction :- Hiding the implementation details of a class and only showing the essential features to the users.
 

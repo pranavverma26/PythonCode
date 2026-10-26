@@ -26,8 +26,8 @@ class Line:
     def __str__(self):
         return "{}x + {}y + {}".format(self.A,self.B,self.C)
     
-    def point_on_line(pranav,shreya):
-        if(pranav.A*shreya.x + pranav.B*shreya.y + pranav.C == 0):
+    def point_on_line(p,s):
+        if(p.A*s.x + p.B*s.y + p.C == 0):
             return "lies on the line"
         else:
             return "does not lie on the line" 
