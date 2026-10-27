@@ -4,6 +4,7 @@ class Employee:
         self.emp_id = emp_id
         self.name = name
         self.salary = salary
+        
 
     def display(self):
         print("ID:", self.emp_id)
