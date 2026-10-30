@@ -10,6 +10,7 @@ class Employee:
     def display(self):
         print("ID:", self.emp_id)
         print("Name:", self.name)
+        
         print("Salary:", self.salary)
 
 
